@@ -1,0 +1,179 @@
+/* styles/quiz.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: url('/styles/images/quiz-deco.png');
+    background-repeat: no-repeat;
+    background-size: auto 110%;
+    background-position: left bottom;
+}
+
+#quiz-container {
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Уменьшенный отступ */
+}
+
+#question-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#question-buttons .question-button {
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#question-buttons .question-button.active-question {
+    background-color: #FFDD00;
+    color: black;
+}
+
+#timer {
+    font-size: 18px;
+    background-color: #6A0DAD;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#question-container {
+    margin-top: 10px; /* Уменьшенный отступ */
+    padding-top: 10px;
+}
+
+#question-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+hr.yellow-divider {
+    border: none;
+    height: 2px;
+    background-color: #FFDD00; /* Желтая линия */
+    margin: 20px 0;
+}
+
+.option-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.option-button.selected {
+    background-color: #FFD700; /* Более читаемый цвет */
+    color: black;
+}
+
+#navigation {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navigation button {
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #FFDD00;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#prev-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border: 2px solid #FFDD00; /* Жёлтая обводка */
+    border-radius: 15px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 20px; /* Увеличенный размер текста */
+}
+
+.close {
+    color: #6A0DAD;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#confirm-yes, #confirm-no {
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#confirm-yes:hover, #confirm-no:hover {
+    background-color: #5A0C95;
+}

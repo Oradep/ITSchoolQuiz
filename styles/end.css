@@ -1,0 +1,80 @@
+/* styles/end.css */
+
+body {
+    display: flex;
+    justify-content: flex-start; /* Изменено для начала прокрутки сверху */
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Изменено для прокрутки */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: url('/styles/images/quiz-deco.png');
+    background-repeat: no-repeat;
+    background-size: auto 50%;
+    background-position: left bottom;
+}
+
+#result-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px;
+}
+
+h1 {
+    color: #6A0DAD;
+}
+
+p {
+    font-size: 24px;
+    color: #333;
+}
+
+.result-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #6A0DAD; /* Фиолетовая обводка */
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.answers {
+    list-style-type: none;
+    padding: 0;
+}
+
+.answer {
+    margin-bottom: 5px;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.incorrect-answer {
+    color: red;
+}
+
+#restart-button {
+    padding: 10px 20px;
+    background-color: #6A0DAD;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#restart-button:hover {
+    background-color: #5A0C95;
+}

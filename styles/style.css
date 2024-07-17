@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik Mono One', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #582F75;
+}
+
+.container {
+  text-align: center;
+  background-color: #FDDC3E;
+  border: 20px solid #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 80%;
+  max-width: 800px;
+  height: 10em;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  background: url('/assets/images/image_1.png') 50% / cover no-repeat;
+  width: 397px;
+  height: 115px;
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: relative;
+  top: -320px;
+}
+
+.header-text {
+  font-family: 'Meow Script', cursive;
+  font-size: 1.5rem;
+  color: white;
+  margin-left: 20px;
+  height: 700px;
+}
+
+
+
+.quiz-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.quiz-subtitle {
+  font-family: 'Lilita One'; 
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 20px;
+  Font-weight: bold
+  
+}
+
+button {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #69359C;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #5A2B8A;
+}
+
+.monster {
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 150px;
+  height: auto;
+}

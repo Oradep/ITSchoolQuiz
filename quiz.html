@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Квиз</title>
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="styles/quiz.css">
 </head>
 <body>
     <div id="quiz-container" class="hidden">
-        <div id="timer">Оставшееся время: <span id="time-left"></span></div>
-        <div id="question-buttons"></div>
-        <div id="question-counter">
-            Вопрос <span id="current-question">1</span> из <span id="total-questions">5</span>
+        <div id="header">
+            <div id="question-buttons"></div>
+            <div id="timer"><span id="time-left"></span></div>
         </div>
+        <hr class="yellow-divider">
         <div id="question-container">
             <p id="question-text"></p>
+            <hr class="yellow-divider">
             <button id="option-a" class="option-button"></button>
             <button id="option-b" class="option-button"></button>
             <button id="option-c" class="option-button"></button>
@@ -32,7 +33,7 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <p id="confirm-text"></p>
             <button id="confirm-yes" onclick="executeAction()">Да</button>
-            <button onclick="closeModal()">Нет</button>
+            <button id="confirm-no" onclick="closeModal()">Нет</button>
         </div>
     </div>
 

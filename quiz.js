@@ -40,7 +40,6 @@ window.onload = async function() {
 
         document.getElementById('time-left').textContent = formatTime(timeLeft);
         timer = setInterval(updateTimer, 1000);
-        document.getElementById('total-questions').textContent = totalQuestions;
         generateQuestionButtons(totalQuestions);
         showQuestion();
 
@@ -52,9 +51,6 @@ window.onload = async function() {
     }
 };
 
-
-
-
 function updateTimer() {
     timeLeft--;
     document.getElementById('time-left').textContent = formatTime(timeLeft);
@@ -62,7 +58,6 @@ function updateTimer() {
         endQuizDueToTimeout();
     }
 }
-
 
 function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
@@ -76,8 +71,6 @@ function showQuestion() {
     document.getElementById('option-a').textContent = question.a;
     document.getElementById('option-b').textContent = question.b;
     document.getElementById('option-c').textContent = question.c;
-
-    document.getElementById('current-question').textContent = currentQuestionIndex + 1;
 
     document.querySelectorAll('.option-button').forEach(btn => btn.classList.remove('selected'));
 
@@ -133,14 +126,11 @@ function saveAnswer() {
 
 function confirmEndQuiz() {
     if (localStorage.getItem('quizCompleted')) {
-        endQuiz()
-    }
-    else {
-    showModal("Вы уверены, что хотите завершить тест?", endQuiz);
+        endQuiz();
+    } else {
+        showModal("Вы уверены, что хотите завершить тест?", endQuiz);
     }
 }
-
-
 
 function endQuizDueToTimeout() {
     clearInterval(timer);
@@ -150,14 +140,12 @@ function endQuizDueToTimeout() {
 }
 
 function endQuiz() {
-    
     closeModal();
     clearInterval(timer);
     displayResults();
     localStorage.setItem('quizCompleted', 'true');
     disableQuizInteraction();
 }
-
 
 function disableQuizInteraction() {
     document.querySelectorAll('.option-button').forEach(button => {
@@ -170,10 +158,6 @@ function disableQuizInteraction() {
 
     document.getElementById('prev-button').disabled = true;
 }
-
-
-
-
 
 function displayResults() {
     let correctCount = 0;
