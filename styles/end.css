@@ -1,0 +1,91 @@
+/* styles/end.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    background-image: url('/styles/images/end-deco.png');
+    background-repeat: repeat-y;
+    background-size: 10%; /* Adjusted to cover entire length */
+    background-position: right;
+}
+
+#result-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #6A0DAD; /* Фиолетовый фон */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 20px;
+    position: relative;
+}
+
+#logo {
+    width: 400px;
+}
+
+h1 {
+    color: #ffffff; /* Белый цвет */
+}
+
+p {
+    font-size: 24px;
+    color: #ffffff; /* Белый цвет */
+}
+
+.result-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 5px solid #FFFF00; /* Жёлтая обводка, увеличенная толщина */
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.question {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000000; /* Чёрный цвет */
+}
+
+.answers {
+    list-style-type: none;
+    padding: 0;
+}
+
+.answer {
+    margin-bottom: 5px;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.incorrect-answer {
+    color: red;
+}
+
+#restart-button {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #FFFF00; /* Жёлтая кнопка */
+    color: #000000; /* Чёрный текст */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: center;
+}
+
+#restart-button:hover {
+    background-color: #E6E600; /* Темнее жёлтый при наведении */
+}

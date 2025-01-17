@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квиз завершен</title>
+    <link rel="stylesheet" href="styles/end.css">
+</head>
+<body>
+    <div id="result-container">
+        <img src="/styles/images/end-logo.png" alt="Логотип" id="logo">
+        <h1>Квиз завершен</h1>
+        <p>Ваш результат: <span id="score"></span></p>
+        <div id="results"></div>
+        <button id="restart-button">Заново</button>
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            const resultData = JSON.parse(localStorage.getItem('quizResult'));
+            if (resultData) {
+                document.getElementById('score').textContent = `${resultData.correctCount} из ${resultData.totalQuestions}`;
+                const resultsContainer = document.getElementById('results');
+
+                try {
+                    const response = await fetch('QuizData.json');
+                    if (!response.ok) {
+                        throw new Error(`Failed to load quiz data. Status: ${response.status}`);
+                    }
+                    const quizData = await response.json();
+
+                    resultData.resultData.forEach(result => {
+                        const resultElement = document.createElement('div');
+                        resultElement.classList.add('result-item');
+
+                        const questionText = quizData.questions.find(q => q.Question === result.question);
+                        if (!questionText) {
+                            throw new Error(`Question "${result.question}" not found in quiz data.`);
+                        }
+
+                        const questionElement = document.createElement('p');
+                        questionElement.classList.add('question');
+                        questionElement.textContent = questionText.Question;
+                        resultElement.appendChild(questionElement);
+
+                        const answersElement = document.createElement('ul');
+                        answersElement.classList.add('answers');
+
+                        const userAnswerText = questionText[result.userAnswer] || 'Не выбран';
+                        const correctAnswerText = questionText[result.correctAnswer];
+
+                        const userAnswerElement = document.createElement('li');
+                        userAnswerElement.innerHTML = `<span>Ваш ответ:</span> ${userAnswerText}`;
+                        userAnswerElement.classList.add('answer', result.userAnswer === result.correctAnswer ? 'correct-answer' : 'incorrect-answer');
+                        answersElement.appendChild(userAnswerElement);
+
+                        const correctAnswerElement = document.createElement('li');
+                        correctAnswerElement.innerHTML = `<span>Правильный ответ:</span> ${correctAnswerText}`;
+                        correctAnswerElement.classList.add('answer', 'correct-answer');
+                        answersElement.appendChild(correctAnswerElement);
+
+                        resultElement.appendChild(answersElement);
+
+                        resultsContainer.appendChild(resultElement);
+                    });
+
+                } catch (error) {
+                    console.error('Error loading quiz data:', error);
+                    resultsContainer.innerHTML = '<p>Произошла ошибка загрузки данных квиза. Попробуйте обновить страницу позже.</p>';
+                }
+
+            }
+            localStorage.removeItem('quizResult');
+        });
+
+        document.getElementById('restart-button').addEventListener('click', function() {
+            localStorage.removeItem('quizCompleted');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
